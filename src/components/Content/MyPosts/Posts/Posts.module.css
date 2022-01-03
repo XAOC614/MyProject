@@ -1,0 +1,9 @@
+.item img{
+    width: 50px;
+    height: 55px;
+    border-radius: 30px;
+}
+.item{
+    color:yellowgreen;
+    padding:10px;
+}
