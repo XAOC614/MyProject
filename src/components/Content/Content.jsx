@@ -2,10 +2,10 @@ import React from "react";
 import s from './Content.module.css';
 import MyPosts from "./MyPosts/MyPosts";
 import ProfileInfo from "./ProfileInfo/ProfileInfo";
-const Content = () => {
+const Content = (props) => {
     return (<div>
         <ProfileInfo />
-        <MyPosts />
+        <MyPosts posts={props.posts}/>
     </div>)
 };
 export default Content;
