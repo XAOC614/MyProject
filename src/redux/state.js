@@ -27,7 +27,7 @@
           ],
       }
   };
-  let addPost = (postMessage) => {
+ export let addPost = (postMessage) => {
     debugger;
     let newPost = {
       id: 5 ,
@@ -36,6 +36,6 @@
     };
 
     state.profilePage.posts.push(newPost);
-  }
-  export {addPost};
+  };
+
   export default state;
