@@ -5,12 +5,14 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import state from './redux/state';
 import {BrowserRouter, Route} from "react-router-dom";
+import {addPost} from './redux/state';
 
+//addPost('Kamasutra');
 ReactDOM.render(
   <BrowserRouter>
-  <React.StrictMode>
-    <App posts={state.profilePage.posts} dialogs={state.messagePage.dialogs} messages={state.messagePage.messages}/>
-  </React.StrictMode>
+  
+    <App posts={state.profilePage.posts} dialogs={state.messagePage.dialogs} messages={state.messagePage.messages} addPost={addPost}/>
+  
   </BrowserRouter>,
   document.getElementById('root')
 );

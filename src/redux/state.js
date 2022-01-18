@@ -26,6 +26,16 @@
             { id: 8, name: 'Petya'},
           ],
       }
-     
   };
+  let addPost = (postMessage) => {
+    debugger;
+    let newPost = {
+      id: 5 ,
+      message: postMessage,
+      likes: 0
+    };
+
+    state.profilePage.posts.push(newPost);
+  }
+  export {addPost};
   export default state;
