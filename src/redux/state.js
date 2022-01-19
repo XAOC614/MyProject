@@ -7,7 +7,7 @@ let state ={
             { id: 3, message: 'Good job', likes:'253'},
             { id: 4, message: 'I like you', likes:'187'},
           ],
-          text:'You are beautiful'
+          text: 'You are beautiful',
      },
       messagePage : {
         messages : [
@@ -38,5 +38,9 @@ let state ={
 
     state.profilePage.posts.push(newPost);
   };
-renderEntireTree (state);
+
+ export let updateNewPostText = (newText) => {
+    state.profilePage.text = newText;
+  };
+  renderEntireTree(state);
   export default state;
