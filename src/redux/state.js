@@ -29,18 +29,22 @@ let state ={
           ],
       }
   };
- export let addPost = (postMessage) => {
+  window.state = state;
+ export let addPost = () => {
     let newPost = {
       id: 5 ,
-      message: postMessage,
+      message: state.profilePage.text,
       likes: 0
     };
 
     state.profilePage.posts.push(newPost);
+    state.profilePage.text ='';
+    renderEntireTree(state);
   };
 
  export let updateNewPostText = (newText) => {
     state.profilePage.text = newText;
+    renderEntireTree(state);
   };
   renderEntireTree(state);
   export default state;
