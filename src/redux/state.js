@@ -27,7 +27,8 @@ let state ={
             { id: 7, name: 'Vasya'},
             { id: 8, name: 'Petya'},
           ],
-      }
+          message: 'Let do this!',
+      },
   };
   window.state = state;
  export let addPost = () => {
@@ -46,5 +47,22 @@ let state ={
     state.profilePage.text = newText;
     renderEntireTree(state);
   };
+  
+  export let addMessage = () => {
+    let newMessage = {
+      id: 6 ,
+      message: state.messagePage.message,
+      
+    };
+
+    state.messagePage.messages.push(newMessage);
+    state.messagePage.message ='';
+    renderEntireTree(state);
+  };
+     export let updateNewMessage = (updateMessage) => {
+     state.messagePage.message = updateMessage;
+     renderEntireTree(state);
+     };
+  
   renderEntireTree(state);
   export default state;
