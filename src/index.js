@@ -11,8 +11,8 @@ ReactDOM.render(
   <BrowserRouter>
   
     <App state={store.getState()} 
-     addPost={store.addPost} 
-     updateNewPostText={store.updateNewPostText} addMessage={store.addMessage} updateNewMessage={store.updateNewMessage}/>
+     addPost={store.addPost.bind(store)} 
+     updateNewPostText={store.updateNewPostText.bind(store)} addMessage={store.addMessage.bind(store)} updateNewMessage={store.updateNewMessage.bind(store)}/>
   
   </BrowserRouter>,
   document.getElementById('root')
