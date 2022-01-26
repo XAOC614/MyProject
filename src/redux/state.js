@@ -36,21 +36,6 @@ let store = {
  _renderEntireTree  () {
   console.log('state is changed');
  },
- addMessage () {
-  let newMessage = {
-    id: 6 ,
-    message: this._state.messagePage.message,
-    
-  };
-
-  this._state.messagePage.messages.push(newMessage);
-  this._state.messagePage.message ='';
-  this._renderEntireTree(this._state);
- },
- updateNewMessage (updateMessage) {
-  this._state.messagePage.message = updateMessage;
-  this._renderEntireTree(this._state);
- },
  subscribe (observer)  {
   this._renderEntireTree = observer;
  },
@@ -66,6 +51,17 @@ let store = {
     this._renderEntireTree(this._state);
    } else if (action.type === 'UPDATE-NEW-POST-TEXT') {
     this._state.profilePage.text = action.newText;
+    this._renderEntireTree(this._state);
+   } else if (action.type === 'ADD-MESSAGE') {
+    let newMessage = {
+      id: 6 ,
+      message: this._state.messagePage.message,
+    };
+    this._state.messagePage.messages.push(newMessage);
+    this._state.messagePage.message ='';
+    this._renderEntireTree(this._state);
+   } else if (action.type === 'UPDATE-NEW-MESSAGE'){
+    this._state.messagePage.message = action.updateMessage;
     this._renderEntireTree(this._state);
    }
  }

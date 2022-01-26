@@ -4,7 +4,6 @@ import s from "./Dialogs.module.css"
 import DialogItem from "./DialogItem/DialogItem";
 import Message from "./Message/Message";
 const Dialogs = (props) => {
-    debugger;
 let dialogElements = 
 props.dialogs.map( d => <DialogItem name={d.name} id={d.id} />)
 let messageElements = 
@@ -13,12 +12,11 @@ props.messages.map( m => <Message message={m.message} id={m.id} />)
 
 let newMessageElement = React.createRef();
 let addMessage =() =>{
-    props.addMessage();
-    debugger;
+    props.dispatch({type:'ADD-MESSAGE'});
 };
 let onMessageChange = () =>{
     let newMessage = newMessageElement.current.value;
-    props.updateNewMessage(newMessage);
+    props.dispatch({type:'UPDATE-NEW-MESSAGE', updateMessage: newMessage });
 };
 
     return (

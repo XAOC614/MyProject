@@ -12,7 +12,7 @@ ReactDOM.render(
   
     <App state={store.getState()} 
      dispatch={store.dispatch.bind(store)} 
-    addMessage={store.addMessage.bind(store)} updateNewMessage={store.updateNewMessage.bind(store)}/>
+    />
   
   </BrowserRouter>,
   document.getElementById('root')
