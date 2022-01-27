@@ -1,3 +1,5 @@
+import profileReducer from "./profile-reducer";
+import messageReducer from "./message-reducer";
 const ADD_POST = 'ADD-POST';
 const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT'
 const ADD_MESSAGE = 'ADD-MESSAGE'
@@ -44,30 +46,11 @@ let store = {
   this._renderEntireTree = observer;
  },
  dispatch (action) {
-  if(action.type === ADD_POST) {
-  let newPost = {
-      id: 5 ,
-      message: this._state.profilePage.text,
-      likes: 0
-    };
-    this._state.profilePage.posts.push(newPost);
-    this._state.profilePage.text ='';
+  this._state.profilePage = profileReducer(this._state.profilePage, action);
+  this._state.messagePage = messageReducer(this._state.messagePage, action);
+  
     this._renderEntireTree(this._state);
-   } else if (action.type === UPDATE_NEW_POST_TEXT) {
-    this._state.profilePage.text = action.newText;
-    this._renderEntireTree(this._state);
-   } else if (action.type === ADD_MESSAGE) {
-    let newMessage = {
-      id: 6 ,
-      message: this._state.messagePage.message,
-    };
-    this._state.messagePage.messages.push(newMessage);
-    this._state.messagePage.message ='';
-    this._renderEntireTree(this._state);
-   } else if (action.type === UPDATE_NEW_POST_MESSAGE){
-    this._state.messagePage.message = action.updateMessage;
-    this._renderEntireTree(this._state);
-   }
+   
  }
 };
 export const addPostActionCreator = () => ({ type: ADD_POST })
