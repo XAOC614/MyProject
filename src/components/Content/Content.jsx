@@ -6,7 +6,7 @@ import ProfileInfo from "./ProfileInfo/ProfileInfo";
 const Content = (props) => {
     return (<div>
         <ProfileInfo />
-        <MyPostsContainer store={props.store}  />
+        <MyPostsContainer />
     </div>)
 };
 export default Content;
