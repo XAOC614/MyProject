@@ -8,6 +8,7 @@ import {BrowserRouter, Route} from "react-router-dom";
 import Music from "./components/Music/Music";
 import News from "./components/News/News";
 import Settings from "./components/Settings/Settings";
+import DialogsContainer from "./components/Dialogs/DialogsContainer";
 const App = (props) => {
     return (
             <div className='app-wrapper'>
@@ -21,11 +22,9 @@ const App = (props) => {
                     addPost={props.addPost} updateNewPostText={props.updateNewPostText}/>}/> */}
 
 
-                <Route path='/dialogs' render={() => <Dialogs messages={props.state.messagePage.messages} dialogs={props.state.messagePage.dialogs}
-                    dispatch={props.dispatch}  message={props.state.messagePage.message}/>} />
+                <Route path='/dialogs' render={() => <DialogsContainer store={props.store}/>} />
 
-                <Route path='/content' render={() => <Content posts={props.state.profilePage.posts} text={props.state.profilePage.text}
-                    dispatch={props.dispatch} />} />
+                <Route path='/content' render={() => <Content store={props.store}  />} />
 
                     <Route path='/news' render={() => <News/> }/>
                     <Route path='/music' component={Music}/>
