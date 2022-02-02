@@ -7,9 +7,9 @@ import { addMessageActionCreator, updateNewPostActionCreator } from "../../redux
 const Dialogs = (props) => {
     debugger;
 let dialogElements = 
-props.dialogs.map( d => <DialogItem name={d.name} id={d.id} />)
+props.dialogs.map( d => <DialogItem name={d.name} key={d.id} id={d.id} />)
 let messageElements = 
-props.messages.map( m => <Message message={m.message} id={m.id} />)
+props.messages.map( m => <Message message={m.message} key={m.id} id={m.id} />)
 
 
 let newMessageElement = React.createRef();
